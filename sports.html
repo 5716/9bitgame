@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="keywords"
+      content="Online Games, Free Games, PS1 Games, Online Emulator"
+    />
+    <meta
+      name="description"
+      content="Play Your Favorite PS1 Games on One Single Site!"
+    />
+    <meta name="author" content="9bitgame.com" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon" />
+    <title>9bitGame - Sports</title>
+    <link rel="stylesheet" href="css/stylesps.css" />
+    <link rel="stylesheet" href="css/dark.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+      $(window).on("load", function () {
+        $(".loader-wrapper").fadeOut("slow");
+      });
+    </script>
+  </head>
+
+  <body>
+    <!--Loader-->
+    <div class="loader-wrapper">
+      <span class="loader"></span>
+    </div>
+    <!---->
+    <div class="header">
+      <a href="index.html">
+        <img src="logo/logo.png" title="9bit Game" alt="Site's Logo"
+      /></a>
+    </div>
+
+    <div>
+      <a rel="import" href="playstation/intro/psxintro.mp4" target="_blank">
+        <img
+          src="logo/playstation.png"
+          title="PlayStation"
+          alt="PlayStation Logo"
+        />
+      </a>
+    </div>
+    <!-- Load font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- The navigation menu -->
+    <div class="navbar">
+      <div class="subnav">
+        <a rel="import" href="action.html" title="Action">Action</a>
+      </div>
+      <div class="subnav">
+        <a rel="import" href="adventure.html" title="Adventure">Adventure</a>
+      </div>
+      <div class="subnav">
+        <a rel="import" href="fighting.html" title="Fighting">Fighting</a>
+      </div>
+      <div class="subnav">
+        <a rel="import" href="fps.html" title="FPS">FPS</a>
+      </div>
+      <div class="subnav">
+        <a rel="import" href="platformer2d.html" title="Platformer 2D"
+          >Platformer 2D</a
+        >
+      </div>
+      <div class="subnav">
+        <a rel="import" href="platformer3d.html" title="Platformer 3D"
+          >Platformer 3D</a
+        >
+      </div>
+      <div class="subnav">
+        <a rel="import" href="racing.html" title="Racing">Racing</a>
+      </div>
+      <div class="subnav">
+        <a rel="import" href="rpg.html" title="RPG">RPG</a>
+      </div>
+      <div class="subnav">
+        <a rel="import" href="rythm.html" title="Rythm">Rythm</a>
+      </div>
+      <div class="subnav">
+        <a rel="import" href="shootemup.html" title="Shoot 'em up"
+          >Shoot 'em up</a
+        >
+      </div>
+      <div class="subnav">
+        <a rel="import" href="sports.html" title="Sports">Sports</a>
+      </div>
+      <div class="subnav">
+        <a rel="import" href="stealth.html" title="Stealth">Stealth</a>
+      </div>
+      <div class="subnav">
+        <a rel="import" href="survivalhorror.html" title="Survival Horror"
+          >Survival Horror</a
+        >
+      </div>
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Game Title"
+      />
+      <button onclick="performSearch()" class="search-button">Search</button>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+      <a class="closebtn" onclick="toggleNav()">&times;</a>
+      <p style="color: white">
+        &nbsp;&nbsp;&nbsp;&nbsp;9bitGame &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </p>
+      <a rel="import" href="index.html">
+        &nbsp;&nbsp;&nbsp;
+        <img
+          src="favicon/psx.ico"
+          title="9bit Game"
+          style="width: auto; height: 55px"
+        />
+      </a>
+      <a href="requestagame.html">Request a Game</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">F.A.Q</a>
+      <a href="bugreport.html">Report a Bug</a>
+      <br />
+      &nbsp;
+      <button id="mybtn" onclick="darkmode()">
+        &#127763; Toggle Dark Mode
+      </button>
+      <br /><br />
+
+      <!-- "Buy me a coffee" script -->
+      <script
+        type="text/javascript"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+        data-name="bmc-button"
+        data-slug="9bitgame"
+        data-color="#FFDD00"
+        data-emoji=""
+        data-font="Cookie"
+        data-text="Buy me a coffee"
+        data-outline-color="#000000"
+        data-font-color="#000000"
+        data-coffee-color="#ffffff"
+      ></script>
+
+      <!-- Positioned "9bit Game 2023" text at the bottom center -->
+      <p class="footer-text">&#169; 9bit Game 2024</p>
+    </div>
+
+    <!-- Main content -->
+    <div id="main">
+      <button class="openbtn" onclick="toggleNav()">&#9776; Menu</button>
+    </div>
+    <br />
+
+    <!-- CSS -->
+    <style>
+      .sidebar {
+        height: 100%; /* Full-height */
+        width: 250px; /* Default width */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color: #111; /* Sidebar background */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        transition: 0.5s; /* Transition effect when opening/closing */
+        padding-top: 60px; /* Place content 60px from the top */
+      }
+
+      .footer-text {
+        position: absolute;
+        bottom: 50px; /* Adjust this if you want more/less space from the bottom */
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgb(255, 255, 255);
+        font-size: 15px;
+        text-align: center;
+      }
+
+      /* Style the open button */
+      .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+      }
+
+      /* close btn */
+      .closebtn {
+        cursor: pointer;
+      }
+
+      /* When the sidebar is hidden */
+      .sidebar.closed {
+        width: 0;
+        padding: 0;
+      }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+      function toggleNav() {
+        var sidebar = document.getElementById("mySidebar");
+        var mainContent = document.getElementById("main");
+
+        if (sidebar.classList.contains("closed")) {
+          sidebar.classList.remove("closed");
+          mainContent.style.marginLeft = "250px"; // Adjust to match sidebar width
+        } else {
+          sidebar.classList.add("closed");
+          mainContent.style.marginLeft = "0";
+        }
+      }
+
+      // Ensure the sidebar is closed on page load
+      window.onload = function () {
+        var sidebar = document.getElementById("mySidebar");
+        var mainContent = document.getElementById("main");
+
+        sidebar.classList.add("closed"); // Ensure the sidebar is closed by default
+        mainContent.style.marginLeft = "0"; // Adjust the margin accordingly
+      };
+
+      // Ensure the sidebar is closed on page load
+      window.onload = function () {
+        var sidebar = document.getElementById("mySidebar");
+        var mainContent = document.getElementById("main");
+
+        sidebar.classList.add("closed"); // Ensure the sidebar is closed by default
+        mainContent.style.marginLeft = "0"; // Adjust the margin accordingly
+      };
+
+      // Ensure the sidebar is closed on page load
+      window.onload = function () {
+        var sidebar = document.getElementById("mySidebar");
+        var mainContent = document.getElementById("main");
+
+        sidebar.classList.add("closed"); // Ensure the sidebar is closed by default
+        mainContent.style.marginLeft = "0"; // Adjust the margin accordingly
+      };
+
+      function darkmode() {
+        document.body.classList.toggle("dark-mode");
+      }
+    </script>
+    <!--PSX GAMES-->
+    <div>
+      <!-- Tony Hawk's Pro Skater -->
+      <a
+        class="psxx"
+        href="playstation/games/proskater.html"
+        style="width: 164px; height: 117px; text-decoration: none"
+      >
+        <img
+          class="psx"
+          src="playstation/photos/proskater.jpg"
+          alt="Tony Hawk's Pro Skater"
+          title="Tony Hawk's Pro Skater"
+          style="width: 140px; height: auto"
+        />
+      </a>
+      <!-- Tony Hawk's Pro Skater 2 -->
+      <a
+        class="psxx"
+        href="playstation/games/proskater2.html"
+        style="width: 164px; height: 117px; text-decoration: none"
+      >
+        <img
+          class="psx"
+          src="playstation/photos/proskater2.jpg"
+          alt="Tony Hawk's Pro Skater 2"
+          title="Tony Hawk's Pro Skater 2"
+          style="width: 140px; height: auto"
+        />
+      </a>
+    </div>
+    <!--! Footer -->
+    <div class="footer">
+      <p style="color: rgb(227, 226, 225); font-size: 20px">
+        &#169; <b>9bitGame 2024 - All Rights Reserved.</b>
+      </p>
+      <p style="color: orange; font-size: 15px">Powered by EmulatorJS</p>
+      <a href="privacy.html" style="font-size: 15px; color: red"
+        >Privacy Policy</a
+      >
+    </div>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+
+      /* Dark Mode */
+      function darkmode() {
+        var SetTheme = document.body;
+        SetTheme.classList.toggle("dark-mode");
+        var theme;
+        if (SetTheme.classList.contains("dark-mode")) {
+          console.log("Dark mode");
+          theme = "DARK";
+        } else {
+          console.log("Light mode");
+          theme = "LIGHT";
+        }
+        // save to localStorage
+        localStorage.setItem("PageTheme", JSON.stringify(theme));
+        // ensure you convert to JSON like i have done -----JSON.stringify(theme)
+      }
+
+      setInterval(() => {
+        let GetTheme = JSON.parse(localStorage.getItem("PageTheme"));
+        console.log(GetTheme);
+        if (GetTheme === "DARK") {
+          document.body.classList = "dark-mode";
+        } else {
+          document.body.classList = "";
+        }
+      }, 5);
+
+      // Search bar
+
+      var games = [
+        { name: "Ace Combat 2", page: "playstation/games/acecombat2.html" },
+        { name: "Alundra", page: "playstation/games/alundra.html" },
+        { name: "Ape Escape", page: "playstation/games/apescape.html" },
+        { name: "Batman & Robin", page: "playstation/games/batman&robin.html" },
+        {
+          name: "Batman Forever: The Arcade Game",
+          page: "playstation/games/batmanforever.html",
+        },
+        { name: "Black Dawn", page: "playstation/games/blackdawn.html" },
+        {
+          name: "Breath of Fire IV",
+          page: "playstation/games/breathofireIV.html",
+        },
+        { name: "Bushido Blade", page: "playstation/games/bushidoblade.html" },
+        {
+          name: "Castlevania: Symphony of the Night",
+          page: "playstation/games/castlevania.html",
+        },
+        {
+          name: "Chrono Cross",
+          page: "playstation/games/chronocross_disc1.html",
+        },
+        {
+          name: "Crash Bandicoot",
+          page: "playstation/games/crashbandicoot.html",
+        },
+        {
+          name: "Crash Bandicoot 2: Cortex Strikes Back",
+          page: "playstation/games/crashbandicoot2.html",
+        },
+        {
+          name: "Crash Bandicoot 3: Warped",
+          page: "playstation/games/crashbandicoot3.html",
+        },
+        {
+          name: "Crash Team Racing",
+          page: "playstation/games/crashteamracing.html",
+        },
+        { name: "Dino Crisis", page: "playstation/games/dinocrisis.html" },
+        { name: "Dino Crisis 2", page: "playstation/games/dinocrisis2.html" },
+        { name: "Driver", page: "playstation/games/driver.html" },
+        {
+          name: "Driver 2: The Wheelman is Back",
+          page: "playstation/games/driver2_disc1.html",
+        },
+        { name: "Einhander", page: "playstation/games/einhander.html" },
+        {
+          name: "Final Fantasy IX",
+          page: "playstation/games/finalfantasyIX_disc1.html",
+        },
+        {
+          name: "Final Fantasy Tactics",
+          page: "playstation/games/finalfantasytactics.html",
+        },
+        {
+          name: "Final Fantasy VII",
+          page: "playstation/games/finalfantasyVII_disc1.html",
+        },
+        {
+          name: "Final Fantasy VIII",
+          page: "playstation/games/finalfantasyVIII_disc1.html",
+        },
+        { name: "Gran Turismo", page: "playstation/games/granturismo.html" },
+        {
+          name: "Gran Turismo 2",
+          page: "playstation/games/granturismo2_disc1.html",
+        },
+        {
+          name: "Disney's Hercules Action Game",
+          page: "playstation/games/hercules.html",
+        },
+        {
+          name: "Jackie Chan Stuntmaster",
+          page: "playstation/games/jackiechan.html",
+        },
+        {
+          name: "Walt Disney's The Jungle Book - Rhythm n' Groove on",
+          page: "playstation/games/junglebook.html",
+        },
+        {
+          name: "Legacy of Kain: Soul Reaver",
+          page: "playstation/games/legacyofkain.html",
+        },
+        {
+          name: "The Legend of Dragoon",
+          page: "playstation/games/legendofdragoon_disc1.html",
+        },
+        { name: "Medal of Honor", page: "playstation/games/medalofhonor.html" },
+        {
+          name: "Medal of Honor: Underground",
+          page: "playstation/games/medalofhonorunderground.html",
+        },
+        {
+          name: "Mega Man Legends 2",
+          page: "playstation/games/megaman2.html",
+        },
+        {
+          name: "Metal Gear Solid",
+          page: "playstation/games/metalgearsolid_disc1.html",
+        },
+        {
+          name: "Monsters Inc. - Scream Team",
+          page: "playstation/games/monstersinc.html",
+        },
+        {
+          name: "Naruto: Shinobi no Sato no Jintori Gassen",
+          page: "playstation/games/naruto.html",
+        },
+        {
+          name: "Need for Speed: High Stakes",
+          page: "playstation/games/nfshighstakes.html",
+        },
+        {
+          name: "Oddworld: Abe's Oddysee",
+          page: "playstation/games/oddworld.html",
+        },
+        {
+          name: "PaRappa the Rapper",
+          page: "playstation/games/parappatherapper.html",
+        },
+        {
+          name: "Parasite Eve",
+          page: "playstation/games/parasiteve_disc1.html",
+        },
+        {
+          name: "Parasite Eve II",
+          page: "playstation/games/parasiteve2_disc1.html",
+        },
+        { name: "Pepsiman", page: "playstation/games/pepsiman.html" },
+        {
+          name: "Tony Hawk's Pro Skater",
+          page: "playstation/games/proskater.html",
+        },
+        {
+          name: "Tony Hawk's Pro Skater 2",
+          page: "playstation/games/proskater2.html",
+        },
+        {
+          name: "Resident Evil 2: Dual Shock Version",
+          page: "playstation/games/re2dualshock_disc1.html",
+        },
+        {
+          name: "Resident Evil Director's Cut",
+          page: "playstation/games/recut.html",
+        },
+        {
+          name: "Resident Evil Director's Cut Dual Shock Version",
+          page: "playstation/games/recutdualshock.html",
+        },
+        { name: "Resident Evil", page: "playstation/games/residentevil.html" },
+        {
+          name: "Resident Evil 2",
+          page: "playstation/games/residentevil2_disc1.html",
+        },
+        {
+          name: "Resident Evil 3: Nemesis",
+          page: "playstation/games/residentevil3.html",
+        },
+        {
+          name: "Resident Evil Survivor",
+          page: "playstation/games/residentevilsurvivor.html",
+        },
+        {
+          name: "R4: Ridge Racer Type 4",
+          page: "playstation/games/ridgeracer.html",
+        },
+        {
+          name: "Shrek: Treasure Hunt",
+          page: "playstation/games/shrek.html",
+        },
+        { name: "Silent Hill", page: "playstation/games/silenthill.html" },
+        { name: "Spider-Man", page: "playstation/games/spiderman.html" },
+        {
+          name: "Spider-Man 2: Enter Electro",
+          page: "playstation/games/spiderman2.html",
+        },
+        {
+          name: "Nickelodeon SpongeBob SquarePants: SuperSponge",
+          page: "playstation/games/spongebob.html",
+        },
+        { name: "Spyro the Dragon", page: "playstation/games/spyro.html" },
+        {
+          name: "Spyro the Dragon 2: Ripto's Rage",
+          page: "playstation/games/spyro2.html",
+        },
+        {
+          name: "Spyro the Dragon 3: Year of the Dragon",
+          page: "playstation/games/spyro3.html",
+        },
+        {
+          name: "Street Fighter Alpha 3",
+          page: "playstation/games/streetfighteralpha3.html",
+        },
+        { name: "Syphon Filter", page: "playstation/games/syphonfilter.html" },
+        { name: "Disney's Tarzan", page: "playstation/games/tarzan.html" },
+        { name: "Tekken 3", page: "playstation/games/tekken3.html" },
+        {
+          name: "Rittai Ninja Katsugeki: Tenchu",
+          page: "playstation/games/tenchu.html",
+        },
+        {
+          name: "Rittai Ninja Katsugeki: Tenchu 2",
+          page: "playstation/games/tenchu2.html",
+        },
+        { name: "Test Drive 5", page: "playstation/games/testdrive5.html" },
+        {
+          name: "Tom and Jerry in House Trap",
+          page: "playstation/games/tomandjerry.html",
+        },
+        { name: "Tomb Raider", page: "playstation/games/tombraider.html" },
+        {
+          name: "Tomb Raider II: Starring Lara Croft",
+          page: "playstation/games/tombraider2.html",
+        },
+        {
+          name: "Toy Story 2: Buzz Lightyear to the Rescue",
+          page: "playstation/games/toystory.html",
+        },
+        {
+          name: "Disney's Treasure Planet",
+          page: "playstation/games/treasureplanet.html",
+        },
+        {
+          name: "Twisted Metal 2",
+          page: "playstation/games/twistedmetal2.html",
+        },
+        { name: "Vagrant Story", page: "playstation/games/vagrantstory.html" },
+        {
+          name: "V-Rally: Championship Edition 2",
+          page: "playstation/games/vrally.html",
+        },
+        { name: "Wipeout 2097", page: "playstation/games/wipeout2097.html" },
+        { name: "Xenogears", page: "playstation/games/Xenogears_disc1.html" },
+        {
+          name: "X-Men: Children of the Atom",
+          page: "playstation/games/Xmen.html",
+        },
+      ];
+
+      function performSearch() {
+        var input = document.getElementById("searchInput").value.toLowerCase();
+        var searchResults = searchGames(input);
+        redirectToSearchResults(searchResults);
+      }
+
+      function searchGames(input) {
+        var searchResults = [];
+
+        // Search for games that match the input
+        for (var i = 0; i < games.length; i++) {
+          var game = games[i].name.toLowerCase();
+          if (game.includes(input)) {
+            searchResults.push(games[i]);
+          }
+        }
+
+        return searchResults;
+      }
+
+      function redirectToSearchResults(searchResults) {
+        var searchResultsJson = JSON.stringify(searchResults);
+        localStorage.setItem("searchResults", searchResultsJson);
+        window.location.href = "search_results.html";
+      }
+
+      //************//
+    </script>
+  </body>
+</html>

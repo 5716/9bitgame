@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/9bitgame/playstation/photos/psx.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/9bitgame/css/stylespsx.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://www.emulatorjs.com/loader.js"></script>
+    <title>9bitGame PSX - Play Final Fantasy VII on 9bitgame.com</title>
+  </head>
+
+  <body>
+    <!-- Loader HTML -->
+    <div class="loader-wrapper">
+      <span class="loader"></span>
+    </div>
+    <!---->
+    <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    <div class="header">
+      <h1>Final Fantasy VII</h1>
+    </div>
+    <div style="width: auto; height: 480px; max-width: 100%">
+      <div id="game"></div>
+    </div>
+    <!-- Container HTML -->
+    <div
+      style="
+        background-color: rgb(214, 214, 214);
+        border: 2px solid grey;
+        border-radius: 20px;
+        text-align: center;
+        margin: 135px;
+      "
+    >
+      <div class="dropup">
+        <button class="btn"><b>Change Disc</b></button>
+        <div class="dropup-content">
+          <a href="finalfantasyVII_disc1">Disc 1</a>
+          <a href="finalfantasyVII_disc2">Disc 2</a>
+          <a href="finalfantasyVII_disc3">Disc 3</a>
+        </div>
+      </div>
+      <button class="btn" title="Comments Section">
+        <a href="#COMMENTS" class="btn">
+          <b>Comments</b>
+        </a>
+      </button>
+      <button
+        class="btn"
+        title="Game Name:  Final Fantasy VII
+Region:  USA
+Console:  Sony PlayStation
+Game Release:  1997-08-15
+Genre:  RPG
+Publisher:  SquareSoft"
+      >
+        <b>Game Info</b>
+      </button>
+    </div>
+    <!---->
+
+    <!-- Star Rating HTML -->
+    <div style="text-align: center">
+      <div class="ratings-wrapper">
+        <div data-productid="21" class="ratings">
+          <span data-rating="5">★</span>
+          <span data-rating="4">★</span>
+          <span data-rating="3">★</span>
+          <span data-rating="2">★</span>
+          <span data-rating="1">★</span>
+        </div>
+      </div>
+    </div>
+    <!---->
+
+    <!-- Game Script -->
+    <script type="text/javascript">
+      EJS_player = "#game";
+      EJS_biosUrl = "../bios/scph5501.bin";
+      EJS_gameUrl = "files/Final Fantasy VII (Disc 3).chd";
+      EJS_core = "psx";
+    </script>
+    <!---->
+
+    <!-- Fade Effect With jQuery Script -->
+    <script>
+      $(window).on("load", function () {
+        $(".loader-wrapper").fadeOut("slow");
+      });
+    </script>
+    <!---->
+
+    <!-- Star Rating Script -->
+    <script>
+      let stars = document.querySelectorAll(".ratings span");
+      let products = document.querySelectorAll(".ratings");
+      let ratings = [];
+
+      for (let star of stars) {
+        star.addEventListener("click", function () {
+          let children = star.parentElement.children;
+          for (let child of children) {
+            if (child.getAttribute("data-clicked")) {
+              return false;
+            }
+          }
+
+          this.setAttribute("data-clicked", "true");
+          let rating = this.dataset.rating;
+          let productId = this.parentElement.dataset.productid;
+          let data = {
+            rating: rating,
+            "product-id": productId,
+          };
+          ratings.push(data);
+          localStorage.setItem("rating", JSON.stringify(ratings));
+        });
+      }
+
+      if (localStorage.getItem("rating")) {
+        ratings = JSON.parse(localStorage.getItem("rating"));
+        for (let rating of ratings) {
+          for (let product of products) {
+            if (product.dataset.productid == rating["product-id"]) {
+              let reverse = Array.from(product.children).reverse();
+              let index = parseInt(rating["rating"]) - 1;
+              reverse[index].setAttribute("data-clicked", "true");
+            }
+          }
+        }
+      }
+    </script>
+    <!---->
+
+    <!-- Giscus -->
+    <h6 id="COMMENTS"></h6>
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="5716/9bitgame.com"
+      data-repo-id="R_kgDOK6zp2g"
+      data-category="General"
+      data-category-id="DIC_kwDOK6zp2s4Cb0G5"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="dark"
+      data-lang="en"
+      crossorigin="anonymous"
+      async
+    ></script>
+    <!---->
+  </body>
+</html>

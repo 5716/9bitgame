@@ -1,0 +1,14 @@
+body {
+  background: #f3f0f0;
+  color: #000;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.dark-mode {
+  background: #161616;
+  color: #fff;
+}
