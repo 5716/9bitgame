@@ -22,4 +22,4 @@
 - **CSS**
 - **JavaScript**
 
-![Image](https://github.com/user-attachments/assets/81728ac2-e315-4dad-9794-423e77289709)
+![Image](https://github.com/user-attachments/assets/c8e5ca83-0313-42d6-bcb6-0163d287122d)
